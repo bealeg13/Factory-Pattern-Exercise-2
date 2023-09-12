@@ -4,7 +4,15 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Console.WriteLine("Which database type do you want to use?");
+
+            string userInput = Console.ReadLine();
+
+            IDataAccess dataAccess = DataAccessFactory.GetDataAccessType(userInput);
+            Console.WriteLine();
+            Console.WriteLine();
+            dataAccess.LoadData();
+            dataAccess.SaveData();
         }
     }
 }
